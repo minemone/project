@@ -9,10 +9,10 @@ import Login from '@/components/Login'
 
 import CommentIndex from '@/components/Comments/index' 
 
-import BlogIndex from '@/components/Blogs/index'
-import BlogCreate from '@/components/Blogs/CreateBlog'
-import BlogShow from '@/components/Blogs/ShowBlog'
-import BlogEdit from '@/components/Blogs/EditBlog'
+import AgentIndex from '@/components/Agents/index'
+import AgentCreate from '@/components/Agents/CreateAgent'
+import AgentShow from '@/components/Agents/ShowAgent'
+import AgentEdit from '@/components/Agents/EditAgent'
 
 Vue.use(Router)
 
@@ -45,24 +45,24 @@ export default new Router({
       component: Login
     },
     {
-      path: '/blogs',
-      name: 'blogs',
-      component: BlogIndex
+      path: '/agents',
+      name: 'agents',
+      component: AgentIndex
     },
     {
-      path: '/blog/create',
-      name: 'blog-create',
-      component: BlogCreate
+      path: '/agent/create',
+      name: 'agent-create',
+      component: AgentCreate
     },
     {
-      path: '/blog/edit/:blogId',
-      name: 'blog-edit',
-      component: BlogEdit
+      path: '/agent/edit/:agentId',
+      name: 'agent-edit',
+      component: AgentEdit
     },
     {
-      path: '/blog/:blogId',
-      name: 'blog',
-      component: BlogShow
+      path: '/agent/:agentId',
+      name: 'agent',
+      component: AgentShow
     },
     {
       path: '/comments',

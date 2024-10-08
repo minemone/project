@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <!-- Logo -->
-        <a class="navbar-brand" href="#" @click.prevent="navigateTo('/dashboard')">
+        <a class="navbar-brand" href="#" @click.prevent="navigateTo('/#')">
           <img src="../assets/img/valo-logo.png" id="logo" alt="logo">
         </a>
         <!-- Toggler/collapsibe Button -->
@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <router-link class="nav-link" to="/blogs">Blogs</router-link>
+              <router-link class="nav-link" to="/agents">Agents</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/users">Users</router-link>
@@ -57,6 +57,10 @@ export default {
 }
 
 .navbar-nav .nav-link:hover {
-  color: yellow;
+  color: #ff4655;
+}
+
+.nav-link {
+  font-size: 1.5rem; /* ปรับขนาดตามที่ต้องการ */
 }
 </style>

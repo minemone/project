@@ -1,11 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-    const Blog = sequelize.define('Blog', {
-        title: DataTypes.STRING,
-        thumbnail: DataTypes.STRING,
-        picture: DataTypes.STRING,
-        content: DataTypes.TEXT,
-        category: DataTypes.STRING,     
-        status: DataTypes.STRING,
+    const Agent = sequelize.define('Agent', {
+        name: DataTypes.STRING,
+        role: DataTypes.STRING,
+        sex: DataTypes.STRING,
+        details: DataTypes.STRING
     })
-    return Blog
+    return Agent
 }
