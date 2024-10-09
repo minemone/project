@@ -9,8 +9,6 @@ import VueResource from 'vue-resource'
 import BackHeader from '@/components/Header'
 import VueCkediter from 'vue-ckeditor2'
 
-
-
 Vue.config.productionTip = false
 
 Vue.component('back-header', BackHeader)

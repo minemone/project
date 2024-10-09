@@ -5,10 +5,11 @@
       <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#" @click.prevent="navigateTo('/#')">
-          <img src="../assets/img/valo-logo.png" id="logo" alt="logo">
+          <img src="../assets/valo-logo.png" id="logo" alt="logo">
         </a>
         <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Navbar links -->
@@ -40,14 +41,21 @@
 export default {
   methods: {
     navigateTo(route) {
-      this.$router.push(route);
+      this.$router.push(route); // ใช้ Vue Router เพื่อเปลี่ยนเส้นทาง
+    },
+    isLogin() {
+      return this.$store.getters.isUserLoggedIn;
+    },
+    logout() {
+      this.$store.dispatch('logout');
+      this.$router.push({ name: 'login' });
     }
   }
 };
 </script>
 
 <style scoped>
-.navbar-brand > img {
+.navbar-brand>img {
   width: 60px;
   margin-right: auto;
 }
@@ -61,6 +69,7 @@ export default {
 }
 
 .nav-link {
-  font-size: 1.5rem; /* ปรับขนาดตามที่ต้องการ */
+  font-size: 1.5rem;
+  /* ปรับขนาดตามที่ต้องการ */
 }
 </style>

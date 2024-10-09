@@ -12,19 +12,22 @@ module.exports = {
             })
         }
     },
-    // create blog
+    // create agent
     async create(req, res) {
         // res.send(JSON.stringify(req.body))
         try {
+            console.log('Agent create req.body:',req.body)
             const agent = await Agent.create(req.body)
+            console.log('Agent create agent:',agent)
             res.send(agent.toJSON())
         } catch (err) {
+            console.log('Agent create err:',err)
             res.status(500).send({
                 error: 'Create agent incorrect'
             })
         }
     },
-    // edit blog, suspend, active
+    // edit agent, suspend, active
     async put(req, res) {
         try {
             await Agent.update(req.body, {
@@ -39,7 +42,7 @@ module.exports = {
             })
         }
     },
-    // delete blog
+    // delete agent
     async remove(req, res) {
         try {
             const agent = await Agent.findOne({
@@ -53,14 +56,14 @@ module.exports = {
                 })
             }
             await agent.destroy()
-            res.send(blog)
+            res.send(agent)
         } catch (err) {
             res.status(500).send({
                 error: 'The agent information was incorrect'
             })
         }
     },
-    // get blog by id
+    // get agent by id
     async show(req, res) {
         try {
             const agent = await Agent.findByPk(req.params.agentId)

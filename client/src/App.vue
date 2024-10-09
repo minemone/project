@@ -18,7 +18,17 @@ export default {
   font-family: 'Kanit', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #000000;
+  color: #ffffff;
+}
+
+fade-enter, .fade-leave-to {
+ opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+ transition: opacity 2.5s;
+}
+.fade-enter-to {
+ opacity: 1;
 }
 </style>
 

@@ -14,6 +14,8 @@ import AgentCreate from '@/components/Agents/CreateAgent'
 import AgentShow from '@/components/Agents/ShowAgent'
 import AgentEdit from '@/components/Agents/EditAgent'
 
+import Upload from '@/components/Util/Upload'
+
 Vue.use(Router)
 
 export default new Router({
@@ -68,6 +70,11 @@ export default new Router({
       path: '/comments',
       name: 'comments',
       component: CommentIndex
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: Upload
     },
   ]
 })
