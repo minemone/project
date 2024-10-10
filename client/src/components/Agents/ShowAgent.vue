@@ -1,13 +1,21 @@
 <template>
-    <div class="container-fluid py-5" style="max-width: 600px;" v-if="agent"> <!-- ตรวจสอบว่ามีข้อมูล agent ก่อน -->
-        <h1>Show Agent</h1>
-        <p>ID: {{ agent.id }}</p>
-        <p>Name: {{ agent.name }}</p>
-        <p>Role: {{ agent.role }}</p>
-        <p>Sex: {{ agent.sex }}</p>
-        <div class="mt-3">
-            <button class="btn btn-warning" v-on:click="navigateTo('/agent/edit/' + agent.id)">Edit Agent</button>
-            <button class="btn btn-secondary" v-on:click="navigateTo('/agents')">Back</button>
+    <div class="container py-5 d-flex justify-content-center" v-if="agent"> <!-- ตรวจสอบว่ามีข้อมูล agent ก่อน -->
+        <div class="card shadow" style="max-width: 100%; width: 100%;">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">{{ agent.name }}</h1>
+                <div class="d-flex justify-content-center">
+                    <img :src="`http://localhost:8081/uploads/${agent.name}.png`" class="img-fluid mb-3 zoom-image"
+                        style="width: 235px; height: 313px; object-fit: contain;" />
+                </div>
+                <p class="card-text">Role: {{ agent.role }}</p>
+                <p class="card-text">Sex: {{ agent.sex }}</p>
+                <p class="card-text">Details: {{ agent.details }}</p>
+                <div class="mt-4 text-center">
+                    <button class="btn btn-warning me-2" v-on:click="navigateTo('/agent/edit/' + agent.id)">Edit
+                        Agent</button>
+                    <button class="btn btn-secondary" v-on:click="navigateTo('/agents')">Back</button>
+                </div>
+            </div>
         </div>
     </div>
     <div v-else>
@@ -39,15 +47,15 @@ export default {
 }
 </script>
 <style scoped>
-    .mt-3 {
-        margin-top: 1rem;
-    }
+.mt-3 {
+    margin-top: 1rem;
+}
 
-    button {
-        margin-right: 10px;
-    }
+button {
+    margin-right: 10px;
+}
 
-    .container-fluid {
-        color: aliceblue;
-    }
+.container-fluid {
+    color: aliceblue;
+}
 </style>

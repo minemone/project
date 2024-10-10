@@ -44,6 +44,11 @@
       </div>
 
       <div class="mb-3">
+        <label for="sex" class="form-label">Sex:</label>
+        <input type="text" v-model="agent.sex" class="form-control" id="sex" />
+      </div>
+
+      <div class="mb-3">
         <label for="details" class="form-label">Details:</label>
         <input type="text" v-model="agent.details" class="form-control" id="details" />
       </div>
