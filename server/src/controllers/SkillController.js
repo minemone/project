@@ -14,17 +14,16 @@ module.exports = {
     },
     // create skill
     async create(req, res) {
-        // res.send(JSON.stringify(req.body))
         try {
-            console.log('Skill create req.body:',req.body)
-            const skill = await Skill.create(req.body)
-            console.log('Skill create skill:',skill)
-            res.send(skill.toJSON())
+            console.log('Skill create req.body:', req.body);
+            const skill = await Skill.create(req.body);
+            console.log('Skill create skill:', skill);
+            res.send(skill.toJSON());
         } catch (err) {
-            console.log('Skill create err:',err)
+            console.log('Skill create err:', err);
             res.status(500).send({
-                error: 'Create Skill incorrect'
-            })
+                error: 'Create skill incorrect',
+            });
         }
     },
     // edit skill, suspend, active

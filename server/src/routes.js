@@ -18,7 +18,7 @@ let storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 })
-let upload = multer({ storage: storage }).array("userPhoto", 40)
+let upload = multer({ storage: storage }).array("userPhoto", 100)
 
 module.exports = (app) => {
     app.get('/users', isAuthenController, UserController.index);

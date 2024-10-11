@@ -19,6 +19,9 @@
               <router-link class="nav-link" to="/agents">Agents</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/skills">Skills</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/weapons">Waepons</router-link>
             </li>
             <li class="nav-item">

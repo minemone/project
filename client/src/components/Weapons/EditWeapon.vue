@@ -42,7 +42,7 @@
 
         <div> <!-- เพิ่มระยะห่างด้านบน -->
           <label for="type" class="form-label">Type:</label>
-          <input type="text" v-model="weapon.role" class="form-control" id="type" />
+          <input type="text" v-model="weapon.type" class="form-control" id="type" />
         </div>
       </div>
 
@@ -53,7 +53,7 @@
 
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Update Weapon</button>
-        <button @click="navigateTo('/weapons')" class="btn btn-secondary">กลับ</button>
+        <button @click="navigateTo('/weapons')" class="btn btn-secondary">Back</button>
       </div>
     </form>
   </div>

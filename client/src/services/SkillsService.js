@@ -8,7 +8,7 @@ export default {
     },
     post(skill) {
         return Api().post('skill', skill)
-    },
+      },
     put(skill) {
         return Api().put('skill/' + skill.id, skill)
     },

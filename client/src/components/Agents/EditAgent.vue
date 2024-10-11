@@ -59,7 +59,7 @@
 
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Update Agent</button>
-        <button @click="navigateTo('/agents')" class="btn btn-secondary">กลับ</button>
+        <button @click="navigateTo('/agents')" class="btn btn-secondary">Back</button>
       </div>
     </form>
   </div>
