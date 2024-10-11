@@ -9,7 +9,6 @@
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Password:</strong> {{ user.password }}</p>
         <p><strong>Status:</strong> {{ user.status }}</p>
-        <p><strong>Type:</strong> {{ user.type }}</p>
         <p><strong>Created At:</strong> {{ user.createdAt }}</p>
         <div class="mt-4 text-center">
           <button @click="navigateTo('/users')" class="btn btn-secondary mt-3">Back</button>

@@ -20,7 +20,6 @@
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Create User</button>
-        <button @click="navigateTo('/users')" class="btn btn-secondary">Back</button>
       </div>
     </form>
   </div>

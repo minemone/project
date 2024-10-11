@@ -28,10 +28,7 @@
               <router-link class="nav-link" to="/users">Users</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/login">Login</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/logout">Logout</router-link>
+              <a class="nav-link" href="#" @click.prevent="logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -50,8 +47,9 @@ export default {
       return this.$store.getters.isUserLoggedIn;
     },
     logout() {
-      this.$store.dispatch('logout');
-      this.$router.push({ name: 'login' });
+      this.$store.dispatch('setToken', null);
+      this.$store.dispatch('setUser', null);
+      this.$router.push({ name: 'login' }); // เปลี่ยนเส้นทางไปที่หน้า login
     }
   }
 };

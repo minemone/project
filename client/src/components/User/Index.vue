@@ -8,15 +8,14 @@
     <div v-if="users.length">
       <h2><div class="mb-3"><b>จำนวนผู้ใช้งาน:</b> {{ users.length }}</div></h2>
       <div class="row">
-        <div v-for="user in users" :key="user.id" class="col-md-6 mb-4">
+        <div v-for="user in users" :key="user.id" class="col-md-4 mb-4">
           <div class="card">
             <div class="card-body">
               <div><b>id:</b> {{ user.id }}</div>
               <div><b>ชื่อผู้ใช้:</b> {{ user.name }} {{ user.lastname }}</div>
               <div><b>อีเมล:</b> {{ user.email }}</div>
               <div><b>status:</b> {{ user.status }}</div>
-              <div><b>type:</b> {{ user.type }}</div>
-              <div class="mt-3">
+              <div class="mt-3 text-center">
                 <button class="btn btn-info btn-sm me-2" v-on:click="navigateTo('/user/' + user.id)">
                   <i class="bi bi-eye" style="font-size: 1.2em;"></i>
                 </button>
@@ -31,9 +30,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="text-center">
-      <button class="btn btn-secondary mt-3" v-on:click="logout">Logout</button>
     </div>
   </div>
 </template>

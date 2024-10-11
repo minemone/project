@@ -6,6 +6,7 @@ import UserEdit from '@/components/User/EditUser'
 import UserCreate from '@/components/User/CreateUser'
 import UserShow from '@/components/User/ShowUser'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 
 
 import AgentIndex from '@/components/Agents/index'
@@ -54,6 +55,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     },
     {
       path: '/agents',
