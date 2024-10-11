@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid py-5">
     <h1 class="text-center">Create Agent</h1>
-    <form v-on:submit.prevent="createAgent" class="mx-auto" style="max-width: 600px;">
+    <form v-on:submit.prevent="createAgent" class="mx-auto" style="max-width: 700px;">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" v-model="agent.name" class="form-control" id="name" />

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid py-5">
       <h1 class="text-center">Create Skill</h1>
-      <form v-on:submit.prevent="createSkill" class="mx-auto" style="max-width: 600px;">
+      <form v-on:submit.prevent="createSkill" class="mx-auto" style="max-width: 700px;">
         <div class="mb-3">
           <label for="name" class="form-label"> Agent Name:</label>  
           <input type="text" v-model="skill.name" class="form-control" id="name" />
@@ -29,7 +29,7 @@
         <div>
           <transition-group tag="ul" class="pictures mt-4">
             <li v-for="picture in pictures" :key="picture.id" class="list-inline-item">
-              <img style="margin-bottom: 5px; max-width: 100px;" :src="BASE_URL + picture.name" alt="picture image"
+              <img style="margin-bottom: 5px; background-color: #000; max-width: 100px;" :src="BASE_URL + picture.name " alt="picture image"
                 class="img-thumbnail" />
               <br />
               <button @click.prevent="useThumbnail(picture.name)" class="btn btn-secondary btn-sm">Thumbnail</button>
