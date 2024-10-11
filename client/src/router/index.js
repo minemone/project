@@ -18,6 +18,11 @@ import WeaponCreate from '@/components/Weapons/CreateWeapon'
 import WeaponEdit from '@/components/Weapons/EditWeapon'
 import WeaponShow from '@/components/Weapons/ShowWeapon'
 
+import SkillIndex from '@/components/Skills/index'
+import SkillCreate from '@/components/Skills/CreateSkill'
+import SkillEdit from '@/components/Skills/EditSkill'
+import SkillShow from '@/components/Skills/ShowSkill'
+
 import Upload from '@/components/Util/Upload'
 
 Vue.use(Router)
@@ -89,6 +94,28 @@ export default new Router({
       path: '/weapon/:weaponId',
       name: 'weapon',
       component: WeaponShow
+    },
+
+
+    {
+      path: '/skills',
+      name: 'skills',
+      component: SkillIndex
+    },
+    {
+      path: '/skill/create',
+      name: 'skill-create',
+      component: SkillCreate
+    },
+    {
+      path: '/skill/edit/:skillId',
+      name: 'skill-edit',
+      component: SkillEdit
+    },
+    {
+      path: '/skill/:skillId',
+      name: 'skill',
+      component: SkillShow
     },
     {
       path: '/upload',
