@@ -2,6 +2,8 @@ const UserController = require('./controllers/UserController');
 const UserAuthenController = require('./controllers/UserAuthenController');
 const isAuthenController = require('./authen/isAuthenController');
 const AgentController = require('./controllers/AgentController');
+const WeaponController = require('./controllers/WeaponController');
+const SkillController = require('./controllers/SkillController');
 
 let multer = require("multer")
 
@@ -16,7 +18,7 @@ let storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 })
-let upload = multer({ storage: storage }).array("userPhoto", 10)
+let upload = multer({ storage: storage }).array("userPhoto", 40)
 
 module.exports = (app) => {
     app.get('/users', isAuthenController, UserController.index);
@@ -24,12 +26,27 @@ module.exports = (app) => {
     app.post('/user', UserController.create);
     app.put('/user/:userId', UserController.put);
     app.delete('/user/:userId', UserController.remove);
+
     app.post('/login', UserAuthenController.login);
+
     app.post('/agent', AgentController.create);
     app.put('/agent/:agentId', AgentController.put);
     app.delete('/agent/:agentId', AgentController.remove);
     app.get('/agent/:agentId', AgentController.show);
     app.get('/agents', AgentController.index);
+
+    app.post('/weapon', WeaponController.create);
+    app.put('/weapon/:weaponId', WeaponController.put);
+    app.delete('/weapon/:weaponId', WeaponController.remove);
+    app.get('/weapons', WeaponController.index);
+    app.get('/weapon/:weaponId', WeaponController.show);
+
+    app.post('/skill', SkillController.create);
+    app.put('/skill/:skillId', SkillController.put);
+    app.delete('/skill/:skillId', SkillController.remove);
+    app.get('/skills', SkillController.index);
+    app.get('/skill/:skillId', SkillController.show);
+    
 
     // upload
     app.post("/upload", function (req, res) {

@@ -1,15 +1,15 @@
 <template>
-  <div class="container-fluid py-5" style="max-width: 600px;" v-if="agent"> <!-- ตรวจสอบว่ามีข้อมูล agent ก่อน -->
-    <h1 class="text-center">Edit Agent</h1>
-    <form v-on:submit.prevent="editAgent">
+  <div class="container-fluid py-5" style="max-width: 600px;" v-if="weapon"> <!-- ตรวจสอบว่ามีข้อมูล weapon ก่อน -->
+    <h1 class="text-center">Edit Weapon</h1>
+    <form v-on:submit.prevent="editWeapon">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" v-model="agent.name" class="form-control" id="name" />
+        <input type="text" v-model="weapon.name" class="form-control" id="name" />
       </div>
 
       <transition name="fade">
-        <div class="thumbnail-pic" v-if="agent.thumbnail !== 'null'">
-          <img :src="BASE_URL + agent.thumbnail" class="img-thumbnail" alt="thumbnail" />
+        <div class="thumbnail-pic" v-if="weapon.thumbnail !== 'null'">
+          <img :src="BASE_URL + weapon.thumbnail" class="img-thumbnail" alt="thumbnail" />
         </div>
       </transition>
 
@@ -41,25 +41,19 @@
         </transition-group>
 
         <div> <!-- เพิ่มระยะห่างด้านบน -->
-          <label for="role" class="form-label">Role:</label>
-          <input type="text" v-model="agent.role" class="form-control" id="role" />
+          <label for="type" class="form-label">Type:</label>
+          <input type="text" v-model="weapon.role" class="form-control" id="type" />
         </div>
-      </div>
-
-
-      <div class="mb-3">
-        <label for="sex" class="form-label">Sex:</label>
-        <input type="text" v-model="agent.sex" class="form-control" id="sex" />
       </div>
 
       <div class="mb-3">
         <label for="details" class="form-label">Details:</label>
-        <textarea v-model="agent.details" class="form-control" id="details" rows="4" cols="50"></textarea>
+        <textarea v-model="weapon.details" class="form-control" id="details" rows="4" cols="50"></textarea>
       </div>
 
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Update Agent</button>
-        <button @click="navigateTo('/agents')" class="btn btn-secondary">กลับ</button>
+        <button type="submit" class="btn btn-primary">Update Weapon</button>
+        <button @click="navigateTo('/weapons')" class="btn btn-secondary">กลับ</button>
       </div>
     </form>
   </div>
@@ -68,7 +62,7 @@
   </div>
 </template>
 <script>
-import AgentsService from "@/services/AgentsService";
+import WeaponsService from "@/services/WeaponsService";
 import VueCkeditor from "vue-ckeditor2";
 import UploadService from "../../services/UploadService";
 
@@ -90,12 +84,11 @@ export default {
       uploadedFileNames: [],
       pictures: [],
       pictureIndex: 0,
-      agent: {
+      weapon: {
         name: "",
         thumbnail: "null",
         pictures: "null",
-        role: "",
-        sex: "",
+        type: "",
         details: "",
       },
       config: {
@@ -124,11 +117,11 @@ export default {
         }
       }
     },
-    async editAgent() {
+    async editWeapon() {
       try {
-        await AgentsService.put(this.agent);
+        await WeaponsService.put(this.weapon);
         this.$router.push({
-          name: "agents",
+          name: "weapons",
         });
       } catch (err) {
         console.log(err);
@@ -205,7 +198,7 @@ export default {
     },
     useThumbnail(filename) {
       console.log(filename);
-      this.agent.thumbnail = filename;
+      this.weapon.thumbnail = filename;
     },
   },
   computed: {
@@ -229,9 +222,9 @@ export default {
     this.currentStatus = STATUS_INITIAL;
 
     try {
-      let agentId = this.$route.params.agentId;
-      this.agent = (await AgentsService.show(agentId)).data;
-      this.pictures = JSON.parse(this.agent.pictures);
+      let weaponId = this.$route.params.weaponId;
+      this.weapon = (await WeaponsService.show(weaponId)).data;
+      this.pictures = JSON.parse(this.weapon.pictures);
       this.pictureIndex = this.pictures.length;
     } catch (error) {
       console.log(error);
@@ -239,9 +232,9 @@ export default {
   },
   async mounted() {
     try {
-      let agentId = this.$route.params.agentId;
-      this.agent = (await AgentsService.show(agentId)).data;
-      this.pictures = JSON.parse(this.agent.pictures);
+      let WeaponId = this.$route.params.weaponId;
+      this.weapon = (await WeaponsService.show(weaponId)).data;
+      this.pictures = JSON.parse(this.weapon.pictures);
     } catch (error) {
       console.log(error);
     }

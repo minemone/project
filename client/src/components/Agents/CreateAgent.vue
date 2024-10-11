@@ -8,12 +8,13 @@
       </div>
 
       <transition name="fade">
+        <label for="name" class="form-label">Picture:</label>
         <div class="thumbnail-pic" v-if="agent.thumbnail !== 'null'">
           <img :src="BASE_URL + agent.thumbnail" class="img-thumbnail" alt="thumbnail" />
         </div>
       </transition>
 
-      <div class="mb-3 dropbox">
+      <div class="dropbox">
         <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="
           filesChange($event.target.name, $event.target.files);
         fileCount = $event.target.files.length;
@@ -50,7 +51,7 @@
 
       <div class="mb-3">
         <label for="details" class="form-label">Details:</label>
-        <input type="text" v-model="agent.details" class="form-control" id="details" />
+        <textarea v-model="agent.details" class="form-control" id="details" rows="4" cols="50"></textarea>
       </div>
 
       <div class="text-center">

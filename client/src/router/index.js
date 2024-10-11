@@ -7,12 +7,16 @@ import UserCreate from '@/components/User/CreateUser'
 import UserShow from '@/components/User/ShowUser'
 import Login from '@/components/Login'
 
-import CommentIndex from '@/components/Comments/index' 
 
 import AgentIndex from '@/components/Agents/index'
 import AgentCreate from '@/components/Agents/CreateAgent'
 import AgentShow from '@/components/Agents/ShowAgent'
 import AgentEdit from '@/components/Agents/EditAgent'
+
+import WeaponIndex from '@/components/Weapons/index'
+import WeaponCreate from '@/components/Weapons/CreateWeapon'
+import WeaponEdit from '@/components/Weapons/EditWeapon'
+import WeaponShow from '@/components/Weapons/ShowWeapon'
 
 import Upload from '@/components/Util/Upload'
 
@@ -67,9 +71,24 @@ export default new Router({
       component: AgentShow
     },
     {
-      path: '/comments',
-      name: 'comments',
-      component: CommentIndex
+      path: '/weapons',
+      name: 'weapons',
+      component: WeaponIndex
+    },
+    {
+      path: '/weapon/create',
+      name: 'weapon-create',
+      component: WeaponCreate
+    },
+    {
+      path: '/weapon/edit/:weaponId',
+      name: 'weapon-edit',
+      component: WeaponEdit
+    },
+    {
+      path: '/weapon/:weaponId',
+      name: 'weapon',
+      component: WeaponShow
     },
     {
       path: '/upload',
