@@ -12,7 +12,7 @@
                     <h1 :style="{ color: getRandomColor() }">{{ skill.name }}</h1>
                     <div class="row">
                         <div v-for="index in 4" :key="index" class="col-md-3">
-                            <div class="card" style="width: 300px; height: 350px;">
+                            <div class="card" style="width: 300px; height: 100%;">
                                 <!-- กำหนดความกว้างและความสูงที่ต้องการ -->
                                 <div class="card-img-top d-flex justify-content-center align-items-center"
                                     style="background-color: #000; height: 150px;">
@@ -21,9 +21,9 @@
                                         style="width: 150px; height: 150px; object-fit: contain;" />
                                 </div>
                                 <div class="card-body">
-                                    <p class="text-muted">{{ skill['details' + index] }}</p>
+                                    <h5 class="text-muted" style="line-height: 1.5;">{{ skill['skill' + index] }}</h5>
+                                    <p class="text-muted" style="line-height: 1.5;">{{ skill['details' + index] }}</p>
                                 </div>
-
                                 <div class="position-absolute" style="top: 10px; right: 10px;">
                                     <button class="btn btn-warning btn-sm mx-1"
                                         v-on:click="navigateTo('/skill/edit/' + skill.id)"><i
